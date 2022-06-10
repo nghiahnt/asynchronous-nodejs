@@ -24,17 +24,22 @@ function checknumber(usernumber, randomnumber) {
         score = score + 0;
         console.log('you got 0 points');
     }
+    console.log('your score is: ' + score);
     return score;
+
 }
 
+//write a function get the random number and user number from the user
+function getnumber() {
+    let usernumber = readline.question('enter a number between 1 and 10: ');
+    console.log('your number is: ' + usernumber);
+    let randomnumber = Math.floor(Math.random() * 10) + 1;
+    console.log('the random number is: ' + randomnumber);
+    return checknumber(usernumber, randomnumber);
+}
 //used the loop to make this game can play as long as the user want
 while (true) {
-    const usernumber = readline.question('Enter a number between 1 and 10: ');
-    console.log('your number is: ' + usernumber);
-    const randomnumber = Math.floor(Math.random() * 10) + 1;
-    console.log('the random number is: ' + randomnumber);
-    checknumber(usernumber, randomnumber);
-    console.log('your score is: ' + score);
+    getnumber();
     const playagain = readline.question('Do you want to play again? (y/n) ');
     if (playagain == 'n') {
         break;
